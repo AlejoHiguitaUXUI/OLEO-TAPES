@@ -1,0 +1,17 @@
+{
+  "name": "oleo-tapes-card-editor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OLEO TAPES - Card Editor Tool",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 ."
+  },
+  "keywords": [
+    "oleo-tapes",
+    "card-editor",
+    "canvas"
+  ],
+  "author": "OLEO TAPES",
+  "license": "MIT"
+}
