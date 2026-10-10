@@ -399,6 +399,10 @@
     const ctx = canvas.getContext('2d');
     if (!ctx) throw new Error('No 2d context');
 
+    // Fill base background color
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(0, 0, width, height);
+
     // 1. Draw background image
     const img = new Image();
     await new Promise((resolve, reject) => {
@@ -413,13 +417,9 @@
     const imgRatio = img.width / img.height;
     const cardRatio = width / height;
     let drawW, drawH;
-    if (imgRatio > cardRatio) {
-      drawH = height * zoomPct;
-      drawW = drawH * imgRatio;
-    } else {
-      drawW = width * zoomPct;
-      drawH = drawW / imgRatio;
-    }
+    // Ensure export matches the CSS background-size: ${zoom}% behavior exactly (width is scaled, height is auto)
+    drawW = width * zoomPct;
+    drawH = drawW / imgRatio;
 
     const drawX = (width - drawW) / 2;
     const drawY = (height - drawH) * posPct;
